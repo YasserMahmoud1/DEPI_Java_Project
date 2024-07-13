@@ -48,7 +48,7 @@ public class Student {
             totalHours += c.getCreditHours();
             totalGrade += (selectGPA(c.getGrade()) * c.getCreditHours());
         }
-        return Main.round(totalGrade / totalHours);
+        return Manage.round(totalGrade / totalHours);
     }
 
     private double selectGPA(double grade){
@@ -84,7 +84,7 @@ public class Student {
         System.out.printf("%-20s%-10s%-10s%n", "Course Name", "Grade","Credit Hours");
         System.out.println("-----------------------------------------------------------------------");
         for (Course c : courseList){
-            System.out.printf("%-20s%-10s%-10s%n", c.getCourseName(),Main.round(c.getGrade()),c.getCreditHours());
+            System.out.printf("%-20s%-10s%-10s%n", c.getCourseName(),Manage.round(c.getGrade()),c.getCreditHours());
         }
         System.out.println();
     }
