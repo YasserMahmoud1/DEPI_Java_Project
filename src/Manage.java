@@ -1,9 +1,11 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Manage {
-    static List<Student> students;
+    static List<Student> students = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
+
     static void addStudent(){
         String name;
         int id;
@@ -21,6 +23,7 @@ public class Manage {
         students.add(new Student(name, id));
         System.out.println("\nStudent Added Successfully!\n");
     }
+
     static void showStudents(){
         if(students.isEmpty()){
             System.out.println("\nThere are no students added yet!\n");
@@ -36,6 +39,7 @@ public class Manage {
         }
         System.out.println();
     }
+
     static void deleteStudent(){
         if(students.isEmpty()){
             System.out.println("\nThere are no students added yet!\n");
@@ -57,6 +61,7 @@ public class Manage {
         }
         System.out.println("\nStudent deleted Successfully\n");
     }
+
     static void showCourses(){
         if(students.isEmpty()){
             System.out.println("\nThere are no students added yet!\n");
@@ -80,6 +85,7 @@ public class Manage {
             System.out.println("\nThe ID you entered is not found\n");
         }
     }
+
     static void showCGPA(){
         if( students.isEmpty()){
             System.out.println("\nThere are no students added yet!\n");
@@ -102,6 +108,7 @@ public class Manage {
             System.out.println("\nThe ID you entered is not found\n");
         }
     }
+
     static void updateStudent(){
         if ( students.isEmpty()) {
             System.out.println("\nThere are no students added yet!\n");
@@ -151,6 +158,7 @@ public class Manage {
                 break;
         }
     }
+
     static void addCourse(Student student){
         System.out.print("Enter the name of the course: ");
          scanner.nextLine();
@@ -166,6 +174,7 @@ public class Manage {
 
         System.out.println("\nThe course added successfully!\n");
     }
+
     static void deleteCourse(Student student){
         if (student.checkCoursesEmpty()){
             System.out.println("\nThere is no courses added yet!\n");
@@ -187,6 +196,7 @@ public class Manage {
         student.deleteCourse(student.getCourses().get(id-1));
         System.out.println("\nCourse has deleted successfully!\n");
     }
+
     static void updateStudentName(Student student){
         System.out.print("Enter the new name of the student: ");
          scanner.nextLine();
@@ -195,6 +205,7 @@ public class Manage {
 
         System.out.println("\nThe name changed successfully!\n");
     }
+
     static void updateStudentID(Student student){
         System.out.print("Enter the new ID of the student: ");
         int newID=  scanner.nextInt();
@@ -202,6 +213,7 @@ public class Manage {
 
         System.out.println("\nThe ID changed successfully!\n");
     }
+
     static void updateCourse(Student student){
         if (student.checkCoursesEmpty()){
             System.out.println("\nThere is no courses added yet!\n");
@@ -245,6 +257,7 @@ public class Manage {
         }
 
     }
+
     static void updateCourseName(Course course){
         System.out.print("Enter the new course name: ");
          scanner.nextLine();
@@ -252,24 +265,28 @@ public class Manage {
         course.setCourseName(newName);
         System.out.println("\nThe course name updated successfully!\n");
     }
+
     static void updateCourseDegree(Course course){
         System.out.print("Enter the new course degree: ");
         double newDegree =  scanner.nextDouble();
         course.setDegree(newDegree);
         System.out.println("\nThe course degree updated successfully!\n");
     }
+
     static void updateCourseTotalDegree(Course course){
         System.out.print("Enter the new course total degree: ");
         double newTotalDegree =  scanner.nextDouble();
         course.setTotalDegree(newTotalDegree);
         System.out.println("\nThe course total degree updated successfully!\n");
     }
+
     static void updateCourseCreditHours(Course course){
         System.out.print("Enter the new course credit Hours: ");
         int newCreditHours =  scanner.nextInt();
         course.setCreditHours(newCreditHours);
         System.out.println("\nThe course credit hours updated successfully!\n");
     }
+
     static double round(double d){
         String formattedValue = String.format("%.2f", d);
         return Double.parseDouble(formattedValue);

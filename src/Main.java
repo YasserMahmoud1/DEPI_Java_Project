@@ -1,14 +1,14 @@
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
-    static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-        Manage.students = new ArrayList<>();
         boolean isContinue = false;
+        Scanner scanner = new Scanner(System.in);
+        String continueStr;
+        int choice;
+
         do {
             System.out.println("====\tStudent Management System\t====");
             System.out.println("1- Add Student");
@@ -17,7 +17,7 @@ public class Main {
             System.out.println("4- Show All Students");
             System.out.println("5- Show All Courses Of Student");
             System.out.println("6- Show CGPA Of Student");
-            int choice;
+
             do{
                 System.out.print("Enter Your Choice(1-6): ");
                 choice = scanner.nextInt();
@@ -44,17 +44,16 @@ public class Main {
                     break;
             }
             System.out.println("Do you want to make another operation?");
-            String l;
+
             do{
                 System.out.print("Yes or No (y/n): ");
-                l = scanner.next();
-                if(Objects.equals(l, "Y")||Objects.equals(l, "y")){
+                continueStr = scanner.next();
+                if(Objects.equals(continueStr, "Y")||Objects.equals(continueStr, "y")){
                     isContinue = true;
-                }else if(Objects.equals(l, "N")||Objects.equals(l, "n")){
+                }else if(Objects.equals(continueStr, "N")||Objects.equals(continueStr, "n")){
                     isContinue = false;
                 }
-
-            }while (!Objects.equals(l, "Y") &&!Objects.equals(l, "y")  && !Objects.equals(l, "N")&&!Objects.equals(l, "n")  );
+            }while (!Objects.equals(continueStr, "Y") &&!Objects.equals(continueStr, "y")  && !Objects.equals(continueStr, "N")&&!Objects.equals(continueStr, "n")  );
         }while (isContinue);
     }
 
